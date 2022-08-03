@@ -2,16 +2,28 @@
 <html lang="en" dir="ltr">
 
 <head>
-  <meta charset="utf-8">
-  <title>ToDo List</title>
+      <meta charset="utf-8">
+      <title>ToDo List</title>
 </head>
 
 <body>
-<%  if (kindOfDay === "Sabado" || kindOfDay === "Domingo") { %>
-      <h1 style = "color: purple;"><%= kindOfDay %> ToDo List</h1>
-<%  } else { %>
-      <h1 style = "color: blue;"><%= kindOfDay %> ToDo List</h1>
-<%  } %>
+      <h1>
+            <%= kindOfDay %>
+      </h1>
+
+      <ul>
+            <% for( let i=0; i < newListItems.length; i++ ) { %>
+                  <li>
+                        <%= newListItems[i] %>
+                  </li>
+                  <% } %>
+      </ul>
+
+      <form action="/" method="post">
+            <input type="text" name="newItem" placeholder="Add position">
+            <!-- name="newItem" will be used in app.js to refere to the input -->
+            <button type="submit" name="button">Add</button>
+      </form>
 
 </body>
 
